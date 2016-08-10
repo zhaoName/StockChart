@@ -103,6 +103,9 @@
     self.isNeedDraw = NO;
     self.lineType = !btn.selected;//顺序别颠倒了
     btn.selected = !btn.selected;
+    //切换图表 防止实时价格线越界 闪烁
+    self.priceLine.frame = CGRectZero;
+    self.priceLabel.frame = CGRectZero;
     
     [btn setImage:[UIImage imageNamed:@"lineChart"] forState:UIControlStateSelected];
     [self startDrawFramework];
@@ -121,9 +124,9 @@
     [Tools postRequestWithUrl:@"http://demo.iemans.com/Handling/Get_History_Data_Line.ashx" parameter:parameter success:^(id response) {
         
         KLineModel *model = [KLineModel mj_objectWithKeyValues:response];
-        if([model.status isEqualToString:@"200"]){
+        if([model.status isEqualToString:@"200"])
+        {
             self.kDataArray = model.data;
-            NSLog(@"kline:%lu %lu", self.kDataArray.count, model.data.count);
             [self dealLineData];//处理K线图数据
             self.isNeedDraw = YES;
         }
@@ -148,9 +151,9 @@
     [Tools postRequestWithUrl:@"http://demo.iemans.com/Handling/Get_History_Data.ashx" parameter:parameter success:^(id response) {
         
         BrokenLineModel *model = [BrokenLineModel mj_objectWithKeyValues:response];
-        if([model.status isEqualToString:@"200"]){
+        if([model.status isEqualToString:@"200"])
+        {
             self.bDataArray = model.data;
-            NSLog(@"bline:%lu %lu", self.bDataArray.count, model.data.count);
             [self dealLineData];
             self.isNeedDraw = YES;
         }
@@ -537,6 +540,7 @@
     self.priceLine.frame = CGRectMake(0, y, FRAME_WIDTH, 1);
     [self addSubview:self.priceLine];
     
+    self.priceLabel.frame = CGRectMake(0, 0, 50, 21);
     self.priceLabel.center = CGPointMake(FRAME_WIDTH + 27, y);
     self.priceLabel.text = socketMdoel.price;
     [self addSubview:self.priceLabel];
@@ -561,13 +565,13 @@
     if(socketMdoel.price.floatValue > self.maxPrice)
     {
         self.maxPrice = socketMdoel.price.floatValue;
-        [self updateFrameworkView];
+        if(self.kDataArray.count || self.bDataArray.count) [self updateFrameworkView];
     }
     //若实时价格小于现有价格的最小值 则更新坐标系(框架)
     else if(socketMdoel.price.floatValue < self.minPrice)
     {
         self.minPrice = socketMdoel.price.floatValue;
-        [self updateFrameworkView];
+        if(self.kDataArray.count || self.bDataArray.count) [self updateFrameworkView];
     }
     else //否则直接画下一个K线或分时图
     {
@@ -717,7 +721,7 @@
 {
     if(!_priceLabel)
     {
-        _priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 21)];
+        _priceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _priceLabel.font = [UIFont systemFontOfSize:12];
         _priceLabel.textAlignment = NSTextAlignmentCenter;
         _priceLabel.textColor = [UIColor whiteColor];
@@ -763,6 +767,7 @@
     if(!_indicatorView){
         _indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:self.frameworkView.frame];
         _indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+        _indicatorView.backgroundColor = [UIColor darkGrayColor];
     }
     return _indicatorView;
 }
