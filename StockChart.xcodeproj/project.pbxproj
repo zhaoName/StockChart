@@ -7,15 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EFCB2724E2695EB868610E0 /* libPods-StockChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1052487352B745C3771E4 /* libPods-StockChart.a */; };
+		FE3744CE1D51C25D004D1C31 /* ChartLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3744CB1D51C25D004D1C31 /* ChartLineView.m */; };
+		FE3744CF1D51C25D004D1C31 /* FrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3744CD1D51C25D004D1C31 /* FrameView.m */; };
+		FE3744D21D51C50C004D1C31 /* KLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3744D11D51C50C004D1C31 /* KLineModel.m */; };
+		FE3744D51D51C5ED004D1C31 /* BrokenLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3744D41D51C5ED004D1C31 /* BrokenLineModel.m */; };
+		FE3744D81D51DABF004D1C31 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3744D71D51DABF004D1C31 /* Tools.m */; };
 		FEC9598A1D50835700DE3133 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC959891D50835700DE3133 /* main.m */; };
 		FEC9598D1D50835700DE3133 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC9598C1D50835700DE3133 /* AppDelegate.m */; };
 		FEC959901D50835700DE3133 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC9598F1D50835700DE3133 /* ViewController.m */; };
 		FEC959931D50835700DE3133 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC959911D50835700DE3133 /* Main.storyboard */; };
 		FEC959951D50835700DE3133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC959941D50835700DE3133 /* Assets.xcassets */; };
 		FEC959981D50835700DE3133 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC959961D50835700DE3133 /* LaunchScreen.storyboard */; };
+		FEF7FEFE1D59D5E600D55434 /* SocketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF7FEFD1D59D5E600D55434 /* SocketModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23B1052487352B745C3771E4 /* libPods-StockChart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StockChart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F368FA82DD1A74157CA7D2D /* Pods-StockChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockChart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StockChart/Pods-StockChart.debug.xcconfig"; sourceTree = "<group>"; };
+		DDCC163ADC7D02CE562A8427 /* Pods-StockChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockChart.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockChart/Pods-StockChart.release.xcconfig"; sourceTree = "<group>"; };
+		FE3744CA1D51C25D004D1C31 /* ChartLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartLineView.h; sourceTree = "<group>"; };
+		FE3744CB1D51C25D004D1C31 /* ChartLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartLineView.m; sourceTree = "<group>"; };
+		FE3744CC1D51C25D004D1C31 /* FrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameView.h; sourceTree = "<group>"; };
+		FE3744CD1D51C25D004D1C31 /* FrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameView.m; sourceTree = "<group>"; };
+		FE3744D01D51C50C004D1C31 /* KLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLineModel.h; sourceTree = "<group>"; };
+		FE3744D11D51C50C004D1C31 /* KLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLineModel.m; sourceTree = "<group>"; };
+		FE3744D31D51C5ED004D1C31 /* BrokenLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrokenLineModel.h; sourceTree = "<group>"; };
+		FE3744D41D51C5ED004D1C31 /* BrokenLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrokenLineModel.m; sourceTree = "<group>"; };
+		FE3744D61D51DABF004D1C31 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		FE3744D71D51DABF004D1C31 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 		FEC959851D50835700DE3133 /* StockChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC959891D50835700DE3133 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FEC9598B1D50835700DE3133 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +46,8 @@
 		FEC959941D50835700DE3133 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEC959971D50835700DE3133 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEC959991D50835700DE3133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEF7FEFC1D59D5E600D55434 /* SocketModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketModel.h; sourceTree = "<group>"; };
+		FEF7FEFD1D59D5E600D55434 /* SocketModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +55,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EFCB2724E2695EB868610E0 /* libPods-StockChart.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F7077E793668820DEB6BF10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23B1052487352B745C3771E4 /* libPods-StockChart.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B78FF8EAEFA23FB39FEE053 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F368FA82DD1A74157CA7D2D /* Pods-StockChart.debug.xcconfig */,
+				DDCC163ADC7D02CE562A8427 /* Pods-StockChart.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FE3744C91D51C25D004D1C31 /* chart */ = {
+			isa = PBXGroup;
+			children = (
+				FE3744CA1D51C25D004D1C31 /* ChartLineView.h */,
+				FE3744CB1D51C25D004D1C31 /* ChartLineView.m */,
+				FE3744CC1D51C25D004D1C31 /* FrameView.h */,
+				FE3744CD1D51C25D004D1C31 /* FrameView.m */,
+				FE3744D01D51C50C004D1C31 /* KLineModel.h */,
+				FE3744D11D51C50C004D1C31 /* KLineModel.m */,
+				FE3744D31D51C5ED004D1C31 /* BrokenLineModel.h */,
+				FE3744D41D51C5ED004D1C31 /* BrokenLineModel.m */,
+				FEF7FEFC1D59D5E600D55434 /* SocketModel.h */,
+				FEF7FEFD1D59D5E600D55434 /* SocketModel.m */,
+			);
+			path = chart;
+			sourceTree = "<group>";
+		};
 		FEC9597C1D50835700DE3133 = {
 			isa = PBXGroup;
 			children = (
+				FE3744D61D51DABF004D1C31 /* Tools.h */,
+				FE3744D71D51DABF004D1C31 /* Tools.m */,
+				FE3744C91D51C25D004D1C31 /* chart */,
 				FEC959871D50835700DE3133 /* StockChart */,
 				FEC959861D50835700DE3133 /* Products */,
+				8B78FF8EAEFA23FB39FEE053 /* Pods */,
+				6F7077E793668820DEB6BF10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +148,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEC9599C1D50835700DE3133 /* Build configuration list for PBXNativeTarget "StockChart" */;
 			buildPhases = (
+				E2F5AB41F1826230769DDAAE /* [CP] Check Pods Manifest.lock */,
 				FEC959811D50835700DE3133 /* Sources */,
 				FEC959821D50835700DE3133 /* Frameworks */,
 				FEC959831D50835700DE3133 /* Resources */,
+				413DCD1799A0D160F3B94820 /* [CP] Embed Pods Frameworks */,
+				F003C7AA6E675E98401FD185 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,14 +209,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		413DCD1799A0D160F3B94820 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StockChart/Pods-StockChart-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2F5AB41F1826230769DDAAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F003C7AA6E675E98401FD185 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StockChart/Pods-StockChart-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FEC959811D50835700DE3133 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FEC959901D50835700DE3133 /* ViewController.m in Sources */,
+				FE3744CF1D51C25D004D1C31 /* FrameView.m in Sources */,
+				FEF7FEFE1D59D5E600D55434 /* SocketModel.m in Sources */,
 				FEC9598D1D50835700DE3133 /* AppDelegate.m in Sources */,
+				FE3744D81D51DABF004D1C31 /* Tools.m in Sources */,
+				FE3744D21D51C50C004D1C31 /* KLineModel.m in Sources */,
+				FE3744D51D51C5ED004D1C31 /* BrokenLineModel.m in Sources */,
 				FEC9598A1D50835700DE3133 /* main.m in Sources */,
+				FE3744CE1D51C25D004D1C31 /* ChartLineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +380,11 @@
 		};
 		FEC9599D1D50835700DE3133 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F368FA82DD1A74157CA7D2D /* Pods-StockChart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StockChart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Eman.StockChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,9 +393,11 @@
 		};
 		FEC9599E1D50835700DE3133 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDCC163ADC7D02CE562A8427 /* Pods-StockChart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StockChart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Eman.StockChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +423,7 @@
 				FEC9599E1D50835700DE3133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
