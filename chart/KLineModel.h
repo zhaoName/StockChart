@@ -19,6 +19,8 @@
 
 
 
+/******************************************************/
+
 @interface KLineDataModel : NSObject
 
 @property (nonatomic, strong) NSString *time; /**< 时间*/

@@ -50,7 +50,7 @@
 //链接成功
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(nonnull NSString *)host port:(uint16_t)port
 {
-    NSLog(@"链接成功");
+    NSLog(@"socket链接成功");
     [self.socket readDataToData:[GCDAsyncSocket LFData] withTimeout:-1 tag:100];
 }
 
@@ -62,7 +62,7 @@
         SocketModel *model = [SocketModel mj_objectWithKeyValues:data];
         if([model.key isEqualToString:@"EURUSD"])//欧元/美元
         {
-            NSLog(@"%@ %@ %@", model.key, model.price, model.type);
+            //NSLog(@"%@ %@ %@", model.key, model.price, model.type);
             [self.frameView updataPriceLineWithPriceFromSocket:model];
         }
         [self.socket readDataToData:[GCDAsyncSocket LFData] withTimeout:-1 tag:100];

@@ -10,7 +10,9 @@
 #import "Tools.h"
 #import "SocketModel.h"
 
-
+/**
+ *  这个类主要是为了处理网络数据(如坐标转换)、业务逻辑
+ */
 @interface FrameView : UIView
 
 @property (nonatomic, assign) ChartLineType lineType; /**< 图表类型 K线图或分时图*/

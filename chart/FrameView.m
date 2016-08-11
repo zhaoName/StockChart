@@ -535,6 +535,30 @@
 
 - (void)updataPriceLineWithPriceFromSocket:(SocketModel *)socketMdoel
 {
+    //若实时价格大于现有价格的最大值 则更新坐标系(框架)
+    if(socketMdoel.price.floatValue > self.maxPrice)
+    {
+        self.maxPrice = socketMdoel.price.floatValue;
+        if(self.kDataArray.count || self.bDataArray.count) [self updateFrameworkView];
+    }
+    //若实时价格小于现有价格的最小值 则更新坐标系(框架)
+    else if(socketMdoel.price.floatValue < self.minPrice)
+    {
+        self.minPrice = socketMdoel.price.floatValue;
+        if(self.kDataArray.count || self.bDataArray.count) [self updateFrameworkView];
+    }
+    else //否则直接画下一个K线或分时图
+    {
+        if(self.lineType == ChartLineTypeKLine) //画最新的K线
+        {
+            [self updateKLine:socketMdoel];
+        }
+        else if(self.lineType == ChartLineTypeBrokenLine) //画最新的分时图
+        {
+            [self updateBrokenLine:socketMdoel];
+        }
+    }
+    
     //随着实时价格的变动 实时价格线frame也在变动
     CGFloat y = FRAME_HEIGHT - (socketMdoel.price.floatValue - self.minPrice)*FRAME_HEIGHT/(self.maxPrice - self.minPrice);
     self.priceLine.frame = CGRectMake(0, y, FRAME_WIDTH, 1);
@@ -560,30 +584,6 @@
         self.priceLabel.backgroundColor = [UIColor greenColor];
         self.priceLine.backgroundColor = [UIColor greenColor];
     }
-    
-    //若实时价格大于现有价格的最大值 则更新坐标系(框架)
-    if(socketMdoel.price.floatValue > self.maxPrice)
-    {
-        self.maxPrice = socketMdoel.price.floatValue;
-        if(self.kDataArray.count || self.bDataArray.count) [self updateFrameworkView];
-    }
-    //若实时价格小于现有价格的最小值 则更新坐标系(框架)
-    else if(socketMdoel.price.floatValue < self.minPrice)
-    {
-        self.minPrice = socketMdoel.price.floatValue;
-        if(self.kDataArray.count || self.bDataArray.count) [self updateFrameworkView];
-    }
-    else //否则直接画下一个K线或分时图
-    {
-        if(self.lineType == ChartLineTypeKLine) //画最新的K线
-        {
-            [self updateKLine:socketMdoel];
-        }
-        else if(self.lineType == ChartLineTypeBrokenLine) //画最新的分时图
-        {
-            [self updateBrokenLine:socketMdoel];
-        }
-    }
 }
 
 /**
@@ -607,6 +607,7 @@
     {
         KLineDataModel *kDataModel = [self.kDataArray lastObject];
         //获取每根K线最大价格和最小价格
+        NSLog(@"socket最大值:%f 最小值:%f", maxPrice, minPrice);
         maxPrice = MAX(maxPrice, sModel.price.floatValue);
         minPrice = MIN(minPrice, sModel.price.floatValue);
         
@@ -622,7 +623,9 @@
     }
     else if([sModel.type isEqualToString:@"2"])
     {
-        [self getKLineNetworkData]; //重新请求网络数据 主要是为了更新x轴坐标
+        maxPrice = 0; //画下根K线时 重置最大值最小值
+        minPrice = MAXFLOAT;
+        [self getKLineNetworkData];//重新请求网络数据 主要是为了更新x轴坐标
     }
 }
 
@@ -644,9 +647,9 @@
         //为了防止切换图表时 网络数据未加载成功就绘制实时K线 造成图表界面快速闪烁
         if(self.isNeedDraw) [chartView setNeedsDisplay];
     }
-    else if([sModel.type isEqualToString:@"2"]) //重新请求网络数据 主要是为了更新x轴坐标
+    else if([sModel.type isEqualToString:@"2"])
     {
-        [self getBrokenLineNetworkData];
+        [self getBrokenLineNetworkData]; //重新请求网络数据 主要是为了更新x轴坐标
     }
 }
 

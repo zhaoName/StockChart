@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Tools.h"
 
+/**
+ *  这个类主要是为了画图 包括框架(坐标系)、K线图、分时图
+ */
 @interface ChartLineView : UIView
 
 @property (nonatomic, assign) ChartLineType lineType;
