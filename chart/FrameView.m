@@ -18,6 +18,8 @@
 #define FRAME_WIDTH self.frameworkView.frame.size.width
 #define FRAME_HEIGHT self.frameworkView.frame.size.height
 
+#define MAX_OR_MIN 0.00005
+
 @interface FrameView ()
 
 @property (nonatomic, strong) NSArray *kDataArray; /**< K线图数据*/
@@ -208,6 +210,9 @@
             }
         }
     }
+    //优化图表或实时价格线在边界处的视觉效果 稍微扩大最大值最小值的范围
+    self.maxPrice += MAX_OR_MIN;
+    self.minPrice -= MAX_OR_MIN;
     
     //回到主线程 更新界面
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -536,15 +541,15 @@
 - (void)updataPriceLineWithPriceFromSocket:(SocketModel *)socketMdoel
 {
     //若实时价格大于现有价格的最大值 则更新坐标系(框架)
-    if(socketMdoel.price.floatValue > self.maxPrice)
+    if(socketMdoel.price.floatValue > self.maxPrice - MAX_OR_MIN)
     {
-        self.maxPrice = socketMdoel.price.floatValue;
+        self.maxPrice = socketMdoel.price.floatValue + MAX_OR_MIN;
         if(self.kDataArray.count || self.bDataArray.count) [self updateFrameworkView];
     }
     //若实时价格小于现有价格的最小值 则更新坐标系(框架)
-    else if(socketMdoel.price.floatValue < self.minPrice)
+    else if(socketMdoel.price.floatValue < self.minPrice + MAX_OR_MIN)
     {
-        self.minPrice = socketMdoel.price.floatValue;
+        self.minPrice = socketMdoel.price.floatValue - MAX_OR_MIN;
         if(self.kDataArray.count || self.bDataArray.count) [self updateFrameworkView];
     }
     else //否则直接画下一个K线或分时图
